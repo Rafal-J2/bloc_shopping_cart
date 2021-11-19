@@ -26,8 +26,9 @@ class CartPage extends StatelessWidget {
                //  Product _bloc = BlocProvider.of<LearnBlocBloc>(context).cartProduct[index];
                 return Column(
                   children: [
-            Image.network(BlocProvider.of<CatalogBloc>(context).product2[index].image!),
-            
+                    Image.network(BlocProvider.of<CatalogBloc>(context).product2[index].image!),
+        //   Image.network(BlocProvider.of<CatalogBloc>(context).product2[index].image!),   
+            Text(BlocProvider.of<CatalogBloc>(context).product2[index].text!)
                   ],                 
                 );
               },

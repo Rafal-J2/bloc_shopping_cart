@@ -1,7 +1,5 @@
 part of 'catalog_bloc.dart';
 
-
-
 abstract class CatalogEvent extends Equatable {
   const CatalogEvent();
 
@@ -18,19 +16,21 @@ class CartStarted extends CatalogEvent {
 }
 
 class CartProductAdded extends CatalogEvent {
-  final ShopItem shopItems;
-  const CartProductAdded(this.shopItems);
+//  List<Product2>? product2;
+ 
 
-  @override
-  List<Object> get props => [shopItems];
-}
+final Product2 product2;
+ const CartProductAdded({required this.product2});
+   @override
+  List<Object> get props => [product2];
+ }
 
 class CartProductRemoved extends CatalogEvent {
-  final Product2 product;
-  const CartProductRemoved(this.product);
+  final Product2 product2;
+  const CartProductRemoved(this.product2);
 
   @override
-  List<Object> get props => [product];
+  List<Object> get props => [product2];
 }
 
 

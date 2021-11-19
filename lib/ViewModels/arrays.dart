@@ -1,8 +1,8 @@
 
  import 'package:bloc_shopping_cart_grid/ViewModels/view_models.dart';
 
-List<Product2> get models => product;
-final  product = [
+List<Product2> get models => product2;
+final  product2 = [
   Product2(
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFhnA96BAkDXRTx8hfJZVXT18hMBCJ8zVmQw&usqp=CAU",
     text: 'test9',
@@ -17,4 +17,4 @@ final  product = [
   ),
 ];
 
-List<ShopItem>? cartItems = [];
+//List<ShopItem>? cartItems = [];

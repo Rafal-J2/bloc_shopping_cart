@@ -1,5 +1,4 @@
 import 'package:bloc/bloc.dart';
-import 'package:bloc_shopping_cart_grid/UI/cart_page.dart';
 import 'package:bloc_shopping_cart_grid/ViewModels/view_models.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
@@ -9,6 +8,10 @@ part 'catalog_state.dart';
 
 class CatalogBloc extends Bloc<CatalogEvent, CatalogState> {
   CatalogBloc() : super(CartLoading());
+
+  List<Product2> product2 = [];
+
+  
 
   @override
   Stream<CatalogState> mapEventToState(
@@ -37,7 +40,7 @@ class CatalogBloc extends Bloc<CatalogEvent, CatalogState> {
             try {
               yield CartLoaded(
                 cart: Cart(
-                  product: List.from(state.cart.product)..add(event.product))
+                  product2: List.from(state.cart.product2)..add(event.product2))
                );
             } catch (_) {}
           }
@@ -49,7 +52,7 @@ class CatalogBloc extends Bloc<CatalogEvent, CatalogState> {
             try {
               yield CartLoaded(
                 cart: Cart(
-                  product: List.from(state.cart.product)..remove(event.product))
+                  product2: List.from(state.cart.product2)..remove(event.product2))
                );
             } catch (_) {}
           }

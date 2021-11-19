@@ -1,4 +1,4 @@
-import 'package:bloc_shopping_cart_grid/ViewModels/arrays.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'UI/catalog.dart';

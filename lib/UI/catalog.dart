@@ -50,8 +50,7 @@ class _CatalogState extends State<Catalog> {
                           onPressed: () {
                             getBloc();
                             print('++Print $getBloc()');
-                           BlocProvider.of<CatalogBloc>(context).add(
-                                CartProductAdded(product2: product2[index]));
+                           BlocProvider.of<CatalogBloc>(context).add(CartProductAdded(product2: product2[index]));
                           },
                           child: const Text('Buttom'))
                     ],

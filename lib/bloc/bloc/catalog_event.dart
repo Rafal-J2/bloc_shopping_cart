@@ -18,19 +18,19 @@ class CartStarted extends CatalogEvent {
 class CartProductAdded extends CatalogEvent {
 //  List<Product2>? product2;
  
-
 final Product2 product2;
  const CartProductAdded({required this.product2});
-   @override
-  List<Object> get props => [product2];
+
+  //  @override
+  // List<Object> get props => [product2];
  }
 
 class CartProductRemoved extends CatalogEvent {
   final Product2 product2;
-  const CartProductRemoved(this.product2);
+ const CartProductRemoved({required this.product2});
 
-  @override
-  List<Object> get props => [product2];
+  // @override
+  // List<Object> get props => [product2];
 }
 
 

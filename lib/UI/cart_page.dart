@@ -1,4 +1,3 @@
-import 'package:bloc_shopping_cart_grid/ViewModels/arrays.dart';
 import 'package:bloc_shopping_cart_grid/ViewModels/view_models.dart';
 import 'package:bloc_shopping_cart_grid/bloc/bloc/catalog_bloc.dart';
 import 'package:flutter/material.dart';
@@ -15,13 +14,8 @@ class CartPage extends StatelessWidget {
       ),
       body: BlocBuilder<CatalogBloc, CatalogState>(
         builder: (context, state) {
-          if (state is CartLoading) {
-            return const CircularProgressIndicator();
-          }
-          if (state is CartLoaded) {
             return GridView.builder(
               itemCount: BlocProvider.of<CatalogBloc>(context).product2.length,
-              // itemCount: state.cart.product2.length,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 3),
               itemBuilder: (context, index) {
@@ -33,20 +27,23 @@ class CartPage extends StatelessWidget {
                           debugPrint('**pressTwoPage');
                            BlocProvider.of<CatalogBloc>(context).add(CartProductRemoved(product2: _prd));
                       },
-                      child: Image.network(_prd.image!)
-                    ),
 
-                 //   Image.network(_prd.image!),
-                    //   Image.network(BlocProvider.of<CatalogBloc>(context).product2[index].image!),
+                  
+
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 10.0),
+                        child: Image(image: AssetImage(_prd.image!),
+                        height: 50.0, width: 50.0,),
+                        
+                      ),
+                    ),
                     Text(_prd.text!),
                  
                   ],
                 );
               },
             );
-          } else {
-            return Text('We have problem in Two Page');
-          }
+        
         },
       ),
     );

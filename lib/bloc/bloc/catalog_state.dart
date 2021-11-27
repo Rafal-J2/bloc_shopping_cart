@@ -14,11 +14,11 @@ class CartLoading extends CatalogState {
 }
 
 class CartLoaded extends CatalogState {
-  final Cart cart;
-  const CartLoaded({this.cart = const Cart()});
+  // final Cart cart;
+  // const CartLoaded({this.cart = const Cart()});
 
-  @override
-  List<Object> get props => [cart];
+   @override
+  List<Object> get props => [];
 }
 
 class CartError extends CatalogState {

@@ -42,17 +42,29 @@ class _CatalogState extends State<Catalog> {
                 if (state is CartLoaded) {
                   return Column(
                     children: [
-                      //  Image(image: AssetImage(shopItems[index].image!)),
-                      Image.network(product2[index].image!,
-                          width: 50, height: 50),
-                      Text(product2[index].text!),
-                      TextButton(
-                          onPressed: () {
-                            getBloc();
-                            print('++Print $getBloc()');
-                           BlocProvider.of<CatalogBloc>(context).add(CartProductAdded(product2: product2[index]));
-                          },
-                          child: const Text('Buttom'))
+                     Padding(
+                        padding: const EdgeInsets.only(top: 10.0, bottom: 5.0),
+                        child: Image(
+                      //  fit: BoxFit.contain,
+                          image: AssetImage(product2[index].image!,),
+                        height: 75.0, ),        
+                                  
+                      ),
+                      Center(
+                        heightFactor: 2.0,
+                        child: Text(product2[index].text!, style: const TextStyle(fontSize: 15.0),)),
+                Center(
+                  heightFactor: 2.0,
+                  child: TextButton(
+                              onPressed: () {
+                             //   getBloc();
+                                debugPrint('++Print $getBloc()');
+                               BlocProvider.of<CatalogBloc>(context).add(CartProductAdded(product2: product2[index]));
+                              },
+                              child: const Text('Buy')),
+                ),
+                     
+                          
                     ],
                   );
                 } else {
@@ -64,13 +76,6 @@ class _CatalogState extends State<Catalog> {
     );
   }
 
-  // Widget gridBuldier() => GridView.builder(
-  //     gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-  //         childAspectRatio: 1.0, crossAxisCount: 3),
-  //     itemBuilder: (context, index) {
-  //       return blocGrid(index);
-  //     });
-
   Widget blocGrid(int index) => Column(
         children: [
           //  Image(image: AssetImage(shopItems[index].image!)),
@@ -79,7 +84,7 @@ class _CatalogState extends State<Catalog> {
           TextButton(
               onPressed: () {
                 getBloc();
-                print('++Print $getBloc()');
+                debugPrint('++Print $getBloc()');
                 BlocProvider.of<CatalogBloc>(context)
                     .add(CartProductAdded(product2: product2[index]));
               },

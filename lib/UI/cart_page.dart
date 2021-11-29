@@ -31,7 +31,7 @@ class CartPage extends StatelessWidget {
                   
 
                       child: Padding(
-                        padding: const EdgeInsets.only(top: 10.0),
+                        padding: const EdgeInsets.only(top: 10.0, bottom: 5.0),
                         child: Image(image: AssetImage(_prd.image!),
                         height: 50.0, width: 50.0,),
                         

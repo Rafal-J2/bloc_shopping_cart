@@ -29,10 +29,9 @@ class _CatalogState extends State<Catalog> {
           icon: const Icon(Icons.shop_2_outlined),
         ),
       ),
-      body: GridView.builder(
+      body: ListView.builder(
           itemCount: product2.length,
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 3),
+     
           itemBuilder: (contex, index) {
             return BlocBuilder<CatalogBloc, CatalogState>(
               builder: (context, state) {
@@ -40,31 +39,30 @@ class _CatalogState extends State<Catalog> {
                   return const Center(child: CircularProgressIndicator());
                 }
                 if (state is CartLoaded) {
-                  return Column(
+                  return Row(
                     children: [
-                     Padding(
-                        padding: const EdgeInsets.only(top: 10.0, bottom: 5.0),
-                        child: Image(
-                      //  fit: BoxFit.contain,
-                          image: AssetImage(product2[index].image!,),
-                        height: 75.0, ),        
-                                  
-                      ),
-                      Center(
-                        heightFactor: 2.0,
-                        child: Text(product2[index].text!, style: const TextStyle(fontSize: 15.0),)),
-                Center(
-                  heightFactor: 2.0,
-                  child: TextButton(
-                              onPressed: () {
-                             //   getBloc();
-                                debugPrint('++Print $getBloc()');
-                               BlocProvider.of<CatalogBloc>(context).add(CartProductAdded(product2: product2[index]));
-                              },
-                              child: const Text('Buy')),
-                ),
                      
-                          
+                      Padding(
+                        padding: const EdgeInsets.all(15.0),
+                        child: Image(                                         
+                          image: AssetImage(
+                            product2[index].image!,
+                          ),
+                          height: 75.0,
+                        ),
+                      ),
+                      Text(
+                        product2[index].text!,
+                        style: const TextStyle(fontSize: 15.0),
+                      ),
+                      TextButton(
+                          onPressed: () {
+                            //   getBloc();
+                            debugPrint('++Print $getBloc()');
+                            BlocProvider.of<CatalogBloc>(context).add(
+                                CartProductAdded(product2: product2[index]));
+                          },
+                          child: const Text('Buy')),
                     ],
                   );
                 } else {

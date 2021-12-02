@@ -45,11 +45,9 @@ class CatalogBloc extends Bloc<CatalogEvent, CatalogState> {
   Stream<CatalogState> _mapCartRemoved(
     CatalogEvent event,
   ) async* {
-  // try {
       if (event is CartProductRemoved) { 
         product2.remove(event.product2);
-       // debugPrint('***** if (event is CartProductRemoved)');
       }
- //  } catch (_) {}
+
   }
 }

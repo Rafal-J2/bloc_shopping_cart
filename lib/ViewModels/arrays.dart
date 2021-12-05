@@ -9,13 +9,16 @@ final  product2 = [
     name: 'Samsung',
     text: 'S21 ultra',
     price: 1200,
+    xxx: 1,
     backgroundColor: const Color(0xffe9eff2),
+    
   ),
   Product2(
     image: "assets/buds-pro.jpg",
     name: 'Samsung',
     text: 'Buds pro 2',
     price: 125,
+    
     backgroundColor: const Color(0xffffeae9),
   ),
   Product2(

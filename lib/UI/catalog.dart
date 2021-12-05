@@ -102,7 +102,7 @@ class _CatalogState extends State<Catalog> {
                         ),
                         Container(
                             padding: const EdgeInsets.only(top: 30),
-                            child: blocGrid(index)),
+                            child: buttonBuy(index)),
                       ],
                     ),
                   );
@@ -115,11 +115,8 @@ class _CatalogState extends State<Catalog> {
     );
   }
 
-  Widget blocGrid(int index) => Column(
+  Widget buttonBuy(int index) => Column(
         children: [
-          //  Image(image: AssetImage(shopItems[index].image!)),
-          //   Image.network(product2[index].image!, width: 50, height: 50),
-          //  Text(product2[index].text!),
           InkWell(
               borderRadius: BorderRadius.circular(12),
               onTap: () {
@@ -143,20 +140,17 @@ class _CatalogState extends State<Catalog> {
       );
 }
 
-Widget blocGrid2(int index) => Column(
+Widget buttonBuy2(int index) => Column(
       children: [
-        //  Image(image: AssetImage(shopItems[index].image!)),
-        //   Image.network(product2[index].image!, width: 50, height: 50),
-        //  Text(product2[index].text!),
         InkWell(
             borderRadius: BorderRadius.circular(12),
             onTap: () {
-              debugPrint("+++ it's work without bloc ");
+               debugPrint("+++ it's work ");
               BlocBuilder<CatalogBloc, CatalogState>(
                 builder: (context, state) {              
                     BlocProvider.of<CatalogBloc>(context)
                         .add(CartProductAdded(product2: product2[index]));
-                    debugPrint("+++ it's work ");
+                    debugPrint("+++ it's work2 ");
                   return const Text('We have problem');                
                 },               
               );

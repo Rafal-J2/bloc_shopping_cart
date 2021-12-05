@@ -3,14 +3,16 @@ import 'package:flutter/material.dart';
 
 class Product2 {
   String? image, text, name;
-  int? price;
+  int? price, xxx;
   Color? backgroundColor;
   Product2({
     this.image,
     this.text,
     this.name,
     this.price,
-    this.backgroundColor,
+    this.backgroundColor, 
+    this.xxx,
+    
   });
 }
 

@@ -1,9 +1,11 @@
+
 import 'package:bloc/bloc.dart';
 import 'package:bloc_shopping_cart_grid/ViewModels/view_models.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 part 'catalog_event.dart';
 part 'catalog_state.dart';
+
 
 class CatalogBloc extends Bloc<CatalogEvent, CatalogState> {
   CatalogBloc() : super(CartLoading());
@@ -19,9 +21,10 @@ class CatalogBloc extends Bloc<CatalogEvent, CatalogState> {
       yield* _mapCartAdded(event);
     } else if (event is CartProductRemoved) {
       yield* _mapCartRemoved(event);
+    } else if (event is CartProductClear) {
+      yield* _mapCartClear(event);
     }
-     yield CartLoaded();
-
+    yield CartLoaded();
   }
 
   Stream<CatalogState> _mapCartStarted(
@@ -34,20 +37,25 @@ class CatalogBloc extends Bloc<CatalogEvent, CatalogState> {
   Stream<CatalogState> _mapCartAdded(
     CatalogEvent event,
   ) async* {
-   // try {
-      if (event is CartProductAdded) {
-        product2.add(event.product2);
-        debugPrint('*****if (event is CartProductAdded)');
-      }
- // } catch (_) {}
+    // try {
+    if (event is CartProductAdded) {
+      product2.add(event.product2);
+      debugPrint('*****if (event is CartProductAdded)');
+    }
+    // } catch (_) {}
   }
 
   Stream<CatalogState> _mapCartRemoved(
     CatalogEvent event,
   ) async* {
-      if (event is CartProductRemoved) { 
-        product2.remove(event.product2);
-      }
+    if (event is CartProductRemoved) {
+      product2.remove(event.product2);
+    }
+  }
 
+  Stream<CatalogState> _mapCartClear(CartProductClear event) async* {
+    if (event is CartProductClear) {
+      product2 = [];
+    }
   }
 }

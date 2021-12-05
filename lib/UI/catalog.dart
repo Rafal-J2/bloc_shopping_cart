@@ -12,10 +12,6 @@ class Catalog extends StatefulWidget {
 }
 
 class _CatalogState extends State<Catalog> {
-  getBloc() => null;
-  //context.read()<CatalogBloc>().add(CartProductAdded(product));
-  ///BlocProvider.of<LearnBlocBloc>(context).add(CartProductAdded(product));
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -140,32 +136,4 @@ class _CatalogState extends State<Catalog> {
       );
 }
 
-Widget buttonBuy2(int index) => Column(
-      children: [
-        InkWell(
-            borderRadius: BorderRadius.circular(12),
-            onTap: () {
-               debugPrint("+++ it's work ");
-              BlocBuilder<CatalogBloc, CatalogState>(
-                builder: (context, state) {              
-                    BlocProvider.of<CatalogBloc>(context)
-                        .add(CartProductAdded(product2: product2[index]));
-                    debugPrint("+++ it's work2 ");
-                  return const Text('We have problem');                
-                },               
-              );
-            },
-            child: Container(
-                width: 60,
-                height: 30,
-                decoration: BoxDecoration(
-                  color: Colors.black,
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                child: const Center(
-                    child: Text(
-                  'Buy',
-                  style: TextStyle(color: Colors.white),
-                ))))
-      ],
-    );
+

@@ -18,11 +18,11 @@ class CatalogBloc extends Bloc<CatalogEvent, CatalogState> {
     if (event is CartStarted) {
       yield* _mapCartStarted(event, state);
     } else if (event is CartProductAdded) {
-      yield* _mapCartAdded(event);
+       product2.add(event.product2);
     } else if (event is CartProductRemoved) {
-      yield* _mapCartRemoved(event);
+     product2.remove(event.product2);
     } else if (event is CartProductClear) {
-      yield* _mapCartClear(event);
+      product2 = [];
     }
     yield CartLoaded();
   }
@@ -32,30 +32,5 @@ class CatalogBloc extends Bloc<CatalogEvent, CatalogState> {
     yield CartLoading();
     await Future<void>.delayed(const Duration(seconds: 1));
     yield CartLoading();
-  }
-
-  Stream<CatalogState> _mapCartAdded(
-    CatalogEvent event,
-  ) async* {
-    // try {
-    if (event is CartProductAdded) {
-      product2.add(event.product2);
-      debugPrint('*****if (event is CartProductAdded)');
-    }
-    // } catch (_) {}
-  }
-
-  Stream<CatalogState> _mapCartRemoved(
-    CatalogEvent event,
-  ) async* {
-    if (event is CartProductRemoved) {
-      product2.remove(event.product2);
-    }
-  }
-
-  Stream<CatalogState> _mapCartClear(CartProductClear event) async* {
-    if (event is CartProductClear) {
-      product2 = [];
-    }
   }
 }
